@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PureTap Water Purifier Catalog</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        function buyNow(productName, productPrice) {
+            // order.html로 이동하고, 제품명과 가격을 URL 파라미터로 전달
+            window.location.href = `order.html?name=${encodeURIComponent(productName)}&price=${encodeURIComponent(productPrice)}`;
+        }
+    </script>
 </head>
 <body>
 
@@ -25,7 +31,7 @@
             <p>This large-capacity water purifier is ideal for restaurants, hotels, hospitals, and other large spaces. It features high-speed purification and a multi-stage filtration system. It also includes an automatic cleaning function for stable and large-volume supply.</p>
             <h3>Subscription Price: 1,725,000 ~ 2,300,000 IDR/month</h3>
             <p>Filter Replacement Cycle: Every 3-6 months / Includes regular check-up and maintenance</p>
-            <a href="#" class="buy-btn">Buy Now</a>
+            <button class="buy-btn" onclick="buyNow('Large Water Purifier', '1,725,000 IDR/month')">Buy Now</button>
         </div>
     </div>
 
@@ -37,7 +43,7 @@
             <p>This medium-sized water purifier is suitable for cafes, small restaurants, and households. It offers basic filtration and UV sterilization functions.</p>
             <h3>Subscription Price: 575,000 ~ 1,150,000 IDR/month</h3>
             <p>Filter Replacement Cycle: Every 6 months / Includes regular check-up and maintenance</p>
-            <a href="#" class="buy-btn">Buy Now</a>
+            <button class="buy-btn" onclick="buyNow('Medium Water Purifier', '575,000 IDR/month')">Buy Now</button>
         </div>
     </div>
 
@@ -49,7 +55,7 @@
             <p>This compact water purifier is perfect for small households or personal use. It is easy to replace filters and features a space-saving design.</p>
             <h3>Subscription Price: 230,000 ~ 460,000 IDR/month</h3>
             <p>Filter Replacement Cycle: Every 6-12 months / Includes basic maintenance</p>
-            <a href="#" class="buy-btn">Buy Now</a>
+            <button class="buy-btn" onclick="buyNow('Small Water Purifier', '230,000 IDR/month')">Buy Now</button>
         </div>
     </div>
 </div>

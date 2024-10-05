@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order - PureTap Water Purifier</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 주문 페이지 디자인 개선 */
+        .order-container {
+            background-color: white;
+            padding: 30px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-container h2 {
+            color: #4A90E2;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.8em;
+        }
+
+        .order-summary {
+            font-size: 1.2em;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .order-summary strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .order-summary p {
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+
+        .order-form h3 {
+            color: #4A90E2;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .order-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .order-form input,
+        .order-form select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1.1em;
+            width: 100%;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .order-form input:focus,
+        .order-form select:focus {
+            border-color: #4A90E2;
+            outline: none;
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+        }
+
+        .order-form button {
+            padding: 15px;
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-form button:hover {
+            background-color: #357ABD;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .order-container {
+                padding: 20px;
+            }
+
+            .order-summary {
+                padding: 15px;
+            }
+
+            .order-form input,
+            .order-form select {
+                font-size: 1em;
+            }
+
+            .order-form button {
+                padding: 12px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+    <script>
+        // URL 파라미터에서 제품명과 가격을 가져옴
+        function getProductDetails() {
+            const params = new URLSearchParams(window.location.search);
+            const productName = params.get('name');
+            const productPrice = params.get('price');
+
+            document.getElementById('product-name').innerText = productName;
+            document.getElementById('product-price').innerText = productPrice;
+        }
+
+        // 페이지 로드 시 제품 정보를 업데이트
+        window.onload = getProductDetails;
+    </script>
+</head>
+<body>
+
+<header>
+    <div class="brand">PureTap</div>
+    <nav>
+        <a href="index.html">Catalog</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="order-container">
+        <h2>Complete Your Order</h2>
+        <div class="order-summary">
+            <strong>Order Summary:</strong>
+            <p>Product: <span id="product-name"></span></p>
+            <p>Price: <span id="product-price"></span></p>
+        </div>
+
+        <form class="order-form" action="#" method="POST">
+            <h3>Billing Information</h3>
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="text" name="address" placeholder="Shipping Address" required>
+            <input type="text" name="city" placeholder="City" required>
+            <input type="text" name="postal-code" placeholder="Postal Code" required>
+
+            <h3>Payment Method</h3>
+            <select name="payment-method" required>
+                <option value="credit-card">Credit Card</option>
+                <option value="bank-transfer">Bank Transfer</option>
+                <option value="paypal">PayPal</option>
+            </select>
+
+            <input type="text" name="card-number" placeholder="Card Number" required>
+            <input type="text" name="expiration-date" placeholder="Expiration Date (MM/YY)" required>
+            <input type="text" name="cvv" placeholder="CVV" required>
+
+            <button type="submit">Place Order</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 PureTap Water Purifier Catalog</p>
+    </div>
+</footer>
+
+</body>
+</html>
